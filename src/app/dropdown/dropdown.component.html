@@ -1,0 +1,15 @@
+<br>
+<ng-multiselect-dropdown-angular7 
+[data]="dropdownlist"
+[(ngModel)]="selectedItems"
+[settings]="dropdownsetting"
+(onSelect)="onitemselect($event)"
+(onSelectAll)="onselectall($event)"
+
+></ng-multiselect-dropdown-angular7>
+<!-- (onFilterTextChange)="onfilter($event)" -->
+<select>
+    <option *ngFor="let data of data">
+        <h2>{{data.name}}</h2>
+    </option>
+</select>
