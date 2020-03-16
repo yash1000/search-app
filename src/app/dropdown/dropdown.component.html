@@ -1,15 +1,30 @@
 <br>
-<ng-multiselect-dropdown-angular7 
-[data]="dropdownlist"
-[(ngModel)]="selectedItems"
-[settings]="dropdownsetting"
-(onSelect)="onitemselect($event)"
-(onSelectAll)="onselectall($event)"
+<button class="btn btn-primary butn" >dropdown</button>
+<div class="drop">
+<div class="dropdown">
+    <input placeholder="search" [(ngModel)]="search" #searchval  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">        
+            <div>                
+            <div  *ngFor="let data of datas | namefilter:search">
+                <p (click)="getname(data.name,data,searchval);search = ''">{{data.name}}</p>
+        </div>
+    </div>          
+    </div>
+    <div class="message">
 
-></ng-multiselect-dropdown-angular7>
-<!-- (onFilterTextChange)="onfilter($event)" -->
-<select>
-    <option *ngFor="let data of data">
-        <h2>{{data.name}}</h2>
-    </option>
-</select>
+    <cdk-virtual-scroll-viewport itemSize = "10">
+        <ul *ngFor="let data of data" >
+            <li>
+                <input type="checkbox" #checkboxs class="inpt"  [checked]="data.checked" value="{{data.id}}" (click)="chacked(data.id,data,checkboxs)" id="checkbox{{data.id}}" >
+            <label for="checkbox{{data.id}}" class="inpt">{{data.name}}</label>
+            </li>
+        </ul>
+    </cdk-virtual-scroll-viewport>
+    </div>
+    <div class="button">
+        <button class="btn btn-primary bvn" (click)="chackvalues(searchval);search = ''" >apply</button>
+        <button class="btn btn-danger bvn" (click)="delete()">delete</button>
+        <button class="btn btn-warning bvn" (click)="clear(data)">clear</button>
+    </div>
+    </div>
+</div>

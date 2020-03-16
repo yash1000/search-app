@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { HttpClientModule } from '@angular/common/http';
-// import { SelectDropDownModule } from 'ngx-select-dropdown'
+import { NgHttpLoaderModule } from 'ng-http-loader';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown-angular7';
 import { DropdownComponent } from './dropdown/dropdown.component'
+import { EmployeeFilterPipe } from './dropdown/search.pipe';
+import {ScrollingModule} from '@angular/cdk/scrolling'
+// import {MatCardModule} from '@angular/material'
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    EmployeeFilterPipe,
     DropdownComponent
   ],
   imports: [
@@ -21,7 +25,9 @@ import { DropdownComponent } from './dropdown/dropdown.component'
     FormsModule,
     HttpClientModule,
     Ng2SearchPipeModule,
-    // SelectDropDownModule,
+    // MatCardModule,
+    ScrollingModule,
+    NgHttpLoaderModule.forRoot(),
     NgMultiSelectDropDownModule.forRoot(),
     ReactiveFormsModule
   ],
